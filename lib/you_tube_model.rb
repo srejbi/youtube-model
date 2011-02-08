@@ -200,6 +200,7 @@ Content-Transfer-Encoding: binary
           xml.media :category, attributes['category'], :scheme => 'http://gdata.youtube.com/schemas/2007/categories.cat'
 #          xml.media :category, "ytm_#{YT_CONFIG['developer_tag']}", :scheme => 'http://gdata.youtube.com/schemas/2007/developertags.cat'
           xml.tag! 'media:keywords', attributes['keywords'].to_s
+          xml.tag! 'yt:private' if attributes.keys.include?('private') && attributes['private']
         end
       end
       xml.target!
